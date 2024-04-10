@@ -50,8 +50,20 @@ limitations under the License.
   </a>
   <!-- Header -->
   <header>
-    <h1 class="l--page">Tinker With a <b>Neural Network</b> <span class="optional">Right Here </span>in Your Browser.<br>Don’t Worry, You Can’t Break It. We Promise.</h1>
+      <h1 class="l--page">What kind of particle was that?<br>Using <b>Machine learning</b> to identify particles.</h1>
+      <!-- a smaller subheading -->
+    <div class="xl--body">
+      <p>
+        Let's imagine that we have a detector that can see some particles.
+        <br>
+        Each time it sees a particle, it can measure the energy of the particle, and the "path length" of the particle (how far throught he detector the particle got).
+        <br>
+        When you turn the detector on, there seem to be 2 kinds of particles.
+        Can you train a neural network (a machine learning tool) to seperate the particles for you?
+      </p>
+    </div>
   </header>
+
 
   <!-- Top Controls -->
   <div id="top-controls">
@@ -72,6 +84,7 @@ limitations under the License.
         <span class="label">Epoch</span>
         <span class="value" id="iter-number"></span>
       </div>
+      <!--
       <div class="control ui-learningRate">
         <label for="learningRate">Learning rate</label>
         <div class="select">
@@ -90,6 +103,7 @@ limitations under the License.
           </select>
         </div>
       </div>
+      -->
       <div class="control ui-activation">
         <label for="activations">Activation</label>
         <div class="select">
@@ -101,6 +115,7 @@ limitations under the License.
           </select>
         </div>
       </div>
+      <!--
       <div class="control ui-regularization">
         <label for="regularizations">Regularization</label>
         <div class="select">
@@ -111,6 +126,8 @@ limitations under the License.
           </select>
         </div>
       </div>
+      -->
+      <!--
       <div class="control ui-regularizationRate">
         <label for="regularRate">Regularization rate</label>
         <div class="select">
@@ -128,6 +145,8 @@ limitations under the License.
           </select>
         </div>
       </div>
+      -->
+      <!--
       <div class="control ui-problem">
         <label for="problem">Problem type</label>
         <div class="select">
@@ -137,6 +156,7 @@ limitations under the License.
           </select>
         </div>
       </div>
+      -->
     </div>
   </div>
 
@@ -146,10 +166,10 @@ limitations under the License.
     <!--  Data Column-->
     <div class="column data">
       <h4>
-        <span>Data</span>
+        <span>Observations</span>
       </h4>
       <div class="ui-dataset">
-        <p>Which dataset do you want to use?</p>
+        <p>Change universe! What is the behavior of the particles you are trying to seperate?</p>
         <div class="dataset-list">
           <div class="dataset" title="Circle">
             <canvas class="data-thumbnail" data-dataset="circle"></canvas>
@@ -172,24 +192,28 @@ limitations under the License.
         </div>
       </div>
       <div>
+          <!--
         <div class="ui-percTrainData">
           <label for="percTrainData">Ratio of training to test data:&nbsp;&nbsp;<span class="value">XX</span>%</label>
           <p class="slider">
             <input class="mdl-slider mdl-js-slider" type="range" id="percTrainData" min="10" max="90" step="10">
           </p>
         </div>
+        -->
         <div class="ui-noise">
           <label for="noise">Noise:&nbsp;&nbsp;<span class="value">XX</span></label>
           <p class="slider">
             <input class="mdl-slider mdl-js-slider" type="range" id="noise" min="0" max="50" step="5">
           </p>
         </div>
+        <!--
         <div class="ui-batchSize">
           <label for="batchSize">Batch size:&nbsp;&nbsp;<span class="value">XX</span></label>
           <p class="slider">
             <input class="mdl-slider mdl-js-slider" type="range" id="batchSize" min="1" max="30" step="1">
           </p>
         </div>
+        -->
           <button class="basic-button" id="data-regen-button" title="Regenerate data">
             Regenerate
           </button>
@@ -199,7 +223,10 @@ limitations under the License.
     <!-- Features Column -->
     <div class="column features">
       <h4>Features</h4>
+      <!--
       <p>Which properties do you want to feed in?</p>
+      -->
+      <p>Let the network use energy, path length ("length") or both?</p>
       <div id="network">
         <svg id="svg" width="510" height="450">
           <defs>
@@ -278,10 +305,12 @@ limitations under the License.
         <div style="display:flex; align-items:center;">
 
           <!-- Gradient color scale -->
-          <div class="label" style="width:105px; margin-right: 10px">
-            Colors shows data, neuron and weight values.
+          <div class="label" style="width:255px; margin-right: 10px">
+            Point color indicates the true identity of the particle, backgound color indicates the current prediction of the particle's identity.
+            <!--Try to get the background colour to match the point colour!-->
           </div>
-          <svg width="150" height="30" id="colormap">
+          <!--
+          <svg width="100" height="30" id="colormap">
             <defs>
               <linearGradient id="gradient" x1="0%" y1="100%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#f59322" stop-opacity="1"></stop>
@@ -290,9 +319,10 @@ limitations under the License.
               </linearGradient>
             </defs>
             <g class="core" transform="translate(3, 0)">
-              <rect width="144" height="10" style="fill: url('#gradient');"></rect>
+              <rect width="120" height="10" style="fill: url('#gradient');"></rect>
             </g>
           </svg>
+          -->
         </div>
         <br/>
         <div style="display:flex;">
@@ -300,10 +330,12 @@ limitations under the License.
             <input type="checkbox" id="show-test-data" class="mdl-checkbox__input" checked>
             <span class="mdl-checkbox__label label">Show test data</span>
           </label>
+          <!--
           <label class="ui-discretize mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="discretize">
             <input type="checkbox" id="discretize" class="mdl-checkbox__input" checked>
             <span class="mdl-checkbox__label label">Discretize output</span>
           </label>
+          -->
         </div>
       </div>
     </div>
@@ -320,6 +352,30 @@ limitations under the License.
   <!-- Article -->
 
   <article id="article-text">
+    <div class="l--body">
+      <h2>Quick instructions;</h2>
+      <p>Click on things! 
+      <br>
+      Things you can click on to change the challange we are trying to solve are;
+      <ul>
+          <li>The dataset thumbnails to change the dataset.</li>
+          <li>The "Regenerate" button to make a new random batch of data.</li>
+          <li>The "Noise" slider to make the problem harder by adding noise to the data.</li>
+      </ul>
+      Things you can click on to adapt the machine learning tool, a "feed forward neural network", are;
+      <ul>
+          <li>The "+" and "-" buttons at the top to add layers to the neural network.</li>
+          <li>The "+" and "-" buttons just below that to add neurons to each layer.</li>
+          <li>The "Activation" dropdown to change the activation function that each neuron uses.</li>
+      </ul>
+      Things you can click on to train and evaluate the neural network are;
+      <ul>
+          <li>The "Run/Pause" button to start or stop the training process.</li>
+          <li>The "Show test data" checkbox to hide or show the test data.</li>
+      </ul>
+     <!-- 
+      </p>
+    </div>
     <div class="l--body">
       <h2>Um, What Is a Neural Network?</h2>
       <p>It’s a technique for building a computer program that learns from data. It is based very loosely on how we think the human brain works. First, a collection of software “neurons” are created and connected together, allowing them to send messages to each other. Next, the network is asked to solve a problem, which it attempts to do over and over, each time strengthening the connections that lead to success and diminishing those that lead to failure. For a more detailed introduction to neural networks, Michael Nielsen’s <a href="http://neuralnetworksanddeeplearning.com/index.html">Neural Networks and Deep Learning</a> is a good place to start. For a more technical overview, try <a href="http://www.deeplearningbook.org/">Deep Learning</a> by Ian Goodfellow, Yoshua Bengio, and Aaron Courville.</p>
@@ -347,15 +403,14 @@ limitations under the License.
       <a href="https://www.tensorflow.org/">TensorFlow</a> library.
       </p>
     </div>
+    -->
 
     <div class="l--body">
       <h2>Credits</h2>
       <p>
-        This was created by Daniel Smilkov and Shan Carter.
-        This is a continuation of many people’s previous work — most notably Andrej Karpathy’s <a href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/classify2d.html">convnet.js demo</a>
-        and Chris Olah’s <a href="http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/">articles</a> about neural networks.
-        Many thanks also to D. Sculley for help with the original idea and to Fernanda Viégas and Martin Wattenberg and the rest of the
-        <a href="https://research.google.com/bigpicture/">Big Picture</a> and <a href="https://research.google.com/teams/brain/">Google Brain</a> teams for feedback and guidance.
+        Heavly cribbed from the <a href="http://playground.tensorflow.org">Tensorflow Playground</a> by Google,
+        which was created by Daniel Smilkov and Shan Carter.
+        Adapted for the DESY open day by Henry Day-Hall.
       </p>
     </div>
   </article>

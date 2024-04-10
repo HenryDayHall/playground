@@ -61,6 +61,12 @@ body {
   margin-right: auto;
 }
 
+.xl--body {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .l--page {
   width: 944px;
   margin-left: auto;
