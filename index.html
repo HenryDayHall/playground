@@ -34,7 +34,7 @@ limitations under the License.
   <meta name="twitter:image:width" content="560">
   <meta name="twitter:image:height" content="295">
 
-  <meta name="author" content="Daniel Smilkov and Shan Carter">
+  <meta name="author" content="Henry Day-Hall, Daniel Smilkov and Shan Carter">
   <title>A Neural Network Playground</title>
   <link rel="stylesheet" href="bundle.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons" rel="stylesheet" type="text/css">
@@ -50,7 +50,13 @@ limitations under the License.
   </a>
   <!-- Header -->
   <header>
-      <h1 class="l--page">What kind of particle was that?<br>Using <b>Machine learning</b> to identify particles.</h1>
+      <h1 class="l--page"></h1>  <!-- empty header to buffer the image -->
+      <div class="image-container">
+		  <img src="DESY_logo_white_web.png" alt="DESY" class="logo" style="margin: 0 auto; display: block;">
+          <div class="overlay-top">What kind of particle was that?</div>
+          <div class="overlay-bottom">Using Machine learning to identify particles.</div>
+      </div>
+      <h1 class="l--page"></h1>  <!-- empty header to buffer the image -->
       <!-- a smaller subheading -->
     <div class="xl--body">
       <p>
@@ -174,7 +180,7 @@ limitations under the License.
           <div class="dataset" title="Circle">
             <canvas class="data-thumbnail" data-dataset="circle"></canvas>
           </div>
-          <div class="dataset" title="Exclusive or">
+          <div class="dataset" title="Physics sample">
             <canvas class="data-thumbnail" data-dataset="xor"></canvas>
           </div>
           <div class="dataset" title="Gaussian">

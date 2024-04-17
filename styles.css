@@ -31,7 +31,7 @@ h1 {
 }
 
 header h1 {
-  line-height: 1.45em;
+  line-height: 1.00em;
   font-weight: 500;
   color: rgba(255, 255, 255, 1.0);
 }
@@ -39,6 +39,43 @@ header h1 {
 h1 b {
   font-weight: 650;
   color: rgba(255, 255, 255, 1);
+}
+
+.image-container {
+    position: relative; /* Make the container a positioned element */
+    text-align: center; /* Center-align the image */
+    margin: 0 auto; /* Center-align the image */
+}
+
+.image-container img {
+    display: inline-block; /* Prevent the image from being displayed as a block element */
+    width: auto; /* Make sure the image is responsive */
+    max-width: 10%; /* Should me smaller than the container */
+    margin: 0 auto; /* Center-align the image */
+}
+
+.overlay-top {
+    position: absolute;
+    top: -1.25em; /* Adjust the top value to position the text above the image */
+    left: 50%; /* Position the text in the middle horizontally */
+    transform: translateX(-50%); /* Center the text horizontally */
+    color: white;
+    line-height: 1.25em;
+    font-weight: 600;
+    font-size: 34px;
+    text-align: center; /* Center-align the text */
+}
+
+.overlay-bottom {
+    position: absolute;
+    top: 100%; /* Adjust the top value to position the text below the image */
+    left: 50%; /* Position the text in the middle horizontally */
+    transform: translateX(-50%); /* Center the text horizontally */
+    color: white; /* Text color */
+    line-height: 1.25em;
+    font-weight: 600;
+    font-size: 34px;
+    text-align: center; /* Center-align the text */
 }
 
 h2 {
@@ -54,6 +91,7 @@ h3 {
 p a {
   color: var(--desyblue);
 }
+
 
 /* Layout */
 
