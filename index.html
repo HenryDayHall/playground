@@ -60,12 +60,12 @@ limitations under the License.
       <!-- a smaller subheading -->
     <div class="xl--body">
       <p>
-        Let's imagine that we have a detector that can see some particles.
+        Let's imagine that some particles are going into a detector.
         <br>
-        Each time it sees a particle, it can measure the energy of the particle, and the "path length" of the particle (how far throught he detector the particle got).
+        Each particle breaks up into many fragments, and the detector counts the number of fragments, and measures how evenly the energy is shared between the fragments.
         <br>
-        When you turn the detector on, there seem to be 2 kinds of particles.
-        Can you train a neural network (a machine learning tool) to seperate the particles for you?
+        You turn the detector on, and there seem to be 2 kinds of particles.
+        Can you train a neural network (a machine learning tool) to separate the particles for you?
       </p>
     </div>
   </header>
@@ -232,7 +232,7 @@ limitations under the License.
       <!--
       <p>Which properties do you want to feed in?</p>
       -->
-      <p>Let the network use number of fragments, fragment energy sharing both?</p>
+      <p>Let the network use <b>number</b> of fragments, energy <b>sharing</b>, or both?</p>
       <div id="network">
         <svg id="svg" width="510" height="450">
           <defs>
