@@ -206,6 +206,52 @@ export function classifyXORData(numSamples: number, noise: number):
   return points;
 }
 
+
+/* load the json file sychronously */
+function loadJSON(path: string) {
+    let json = null;
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", path, false);
+    xhr.onload = function () {
+        json = JSON.parse(xhr.responseText);
+    };
+    xhr.send();
+    return json;
+    }
+
+export function classifyPhysicsData(numSamples: number, noise: number):
+    Example2D[] {
+  let points: Example2D[] = [];
+  /*fetch("physicsData.json")
+    .then(response => response.json())
+    .then(function(myJson) {*/
+
+  let myJson = loadJSON("physicsData.json");
+
+  let labels = myJson["label"];
+  let multiplicities = myJson["multiplicities"];
+  let max_multipilicity = Math.max(...multiplicities);
+  let max_pTD = Math.max(...myJson["pTD"]);
+  let pTD = myJson["pTD"];
+  for (let i = 0; i < numSamples; i++) {
+    if (i < 5) {
+      console.log(multiplicities[i]);
+      console.log(pTD[i]);
+      console.log(labels[i]);
+    }
+    let x = 6*(2*multiplicities[i]/max_multipilicity-1);
+    let y = 6*(1-2*pTD[i]/max_pTD);
+    let label = labels[i]*2-1;
+    points.push({x: x, y: y, label: label});
+  }
+  points.push({x: 0., y: 0., label: 1});
+  
+  console.log("First 5 points:");
+  console.log(points.slice(0, 5));
+  return points;
+}
+
+
 /**
  * Returns a sample from a uniform [a, b] distribution.
  * Uses the seedrandom library as the random generator.

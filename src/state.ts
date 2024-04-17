@@ -37,7 +37,7 @@ export let regularizations: {[key: string]: nn.RegularizationFunction} = {
 /** A map between dataset names and functions that generate classification data. */
 export let datasets: {[key: string]: dataset.DataGenerator} = {
   "circle": dataset.classifyCircleData,
-  "xor": dataset.classifyXORData,
+  "physics": dataset.classifyPhysicsData,
   "gauss": dataset.classifyTwoGaussData,
   "spiral": dataset.classifySpiralData,
 };
