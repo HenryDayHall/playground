@@ -177,10 +177,10 @@ This file has been modified for use in the DESY open day 2024.
     <!--  Data Column-->
     <div class="column data">
       <h4>
-        <span>Beobachtungen</span>
+        <span>Datensätze</span>
       </h4>
       <div class="ui-dataset">
-        <p>Verändere das Universum! Wie verhalten sich die Teilchen, die Sie zu trennen versuchen?</p>
+        <p>Die ersten drei Datensätze sind Beispiele. Der letzte Datensatz ist ein echter Quark/Gluon Datensatz. Können Sie Quarks von Gluonen trennen?</p>
         <div class="dataset-list">
           <div class="dataset" title="Circle">
             <canvas class="data-thumbnail" data-dataset="circle"></canvas>
@@ -226,18 +226,18 @@ This file has been modified for use in the DESY open day 2024.
         </div>
         -->
           <button class="basic-button" id="data-regen-button" title="Regenerate data">
-            Regenerieren
+            Neu generieren
           </button>
       </div>
     </div>
 
     <!-- Features Column -->
     <div class="column features">
-      <h4>Merkmale</h4>
+      <h4>Eingabedaten</h4>
       <!--
       <p>Which properties do you want to feed in?</p>
       -->
-      <p><b>Anzahl</b> der Fragmente, oder/und die gemeinsame <b>Nutzung</b> von Energie?</p>
+      <p>Anzahl der Jet Fragmente und die Impulsdispersion.</p>
       <div id="network">
         <svg id="svg" width="510" height="450">
           <defs>
@@ -261,7 +261,7 @@ This file has been modified for use in the DESY open day 2024.
             <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow)">
           </svg>
           <div class="label">
-              Dies ist die Ausgabe eines <b>Neurons</b>. Bewegen Sie den Mauszeiger, um es größer zu sehen.
+              Dies ist die Ausgabe eines Neurons. Für mehr Informationen bewegen Sie den Mauszeiger über das Kästchen oder die Verbindungen zwischen den Neuronen. 
           </div>
         </div>
         <div class="callout weights">
@@ -274,7 +274,7 @@ This file has been modified for use in the DESY open day 2024.
             <path d="M12,30C5,20 2,15 12,0" marker-end="url(#arrow)">
           </svg>
           <div class="label">
-              Die Ausgaben werden mit unterschiedlichen <b>Gewichten</b> gemischt, was durch die Dicke der Linien angezeigt wird. 
+              Die Ausgabe eines jeden Neurons wird gewichtet. Die erlernten Gewichte werden durch Farbe und Stärke der Linie angedeutet. 
           </div>
         </div>
       </div>
@@ -302,11 +302,11 @@ This file has been modified for use in the DESY open day 2024.
       <h4>Ausgabe</h4>
       <div class="metrics">
         <div class="output-stats ui-percTrainData">
-          <span>Test Verlust</span>
+          <span>Test Loss</span>
           <div class="value" id="loss-test"></div>
         </div>
         <div class="output-stats train">
-          <span>Train Verlust</span>
+          <span>Train Loss</span>
           <div class="value" id="loss-train"></div>
         </div>
         <div id="linechart"></div>
@@ -317,7 +317,8 @@ This file has been modified for use in the DESY open day 2024.
 
           <!-- Gradient color scale -->
           <div class="label" style="width:255px; margin-right: 10px">
-             Die Farbe des Punktes zeigt die wahre Identität des Partikels an, die Farbe des Hintergrunds zeigt die aktuelle Vorhersage der Identität des Partikels an. 
+              <!-- Die Farbe des Punktes zeigt die wahre Identität des Partikels an, die Farbe des Hintergrunds zeigt die aktuelle Vorhersage der Identität des Partikels an. -->
+             Jeder Punkt ist ein Jet. Die Farbe der Punkte gibt an, ob es sich hier um einen Quark oder Gluon Jet handelt. Der Hintergrund ist ebenfalls eingefärbt. Hier gibt die Farbe an, welcher Teilchensorte das Netzwerk einen Punkt zuordnen würde, sollte dort ein Punkt landen. 
             <!--Try to get the background colour to match the point colour!-->
           </div>
           <!--
@@ -364,25 +365,25 @@ This file has been modified for use in the DESY open day 2024.
 
   <article id="article-text">
     <div class="l--body">
-      <h2>Schnelle Anweisungen;</h2>
+      <h2>Kursanleitung;</h2>
       <p>Klicken Sie auf Dinge! 
       <br>
-      Sie können auf folgende Dinge klicken, um die Aufgabe zu ändern, die wir gerade zu lösen versuchen;
+      So ändern Sie den Datensatz:
       <ul>
-          <li>Die Miniaturbilder der Datensätze, um den Datensatz zu ändern.</li>
-          <li>Die Schaltfläche "Regenerieren", um einen neuen Zufallsstapel von Daten zu erstellen.</li>
-          <li>Der Schieberegler "Rauschen", um das Problem durch Hinzufügen von Rauschen zu den Daten zu erschweren.</li>
+          <li>Die vier kleinen Bilder auf der linken Seite zeigen die vier verschiedenen Datensätze. Klicken Sie auf den jeweiligen Datensatz, um ihn auszuwählen.</li>
+          <li>Klicken Sie auf ‘NEU GENERIEREN’ um einen neuen Datensatz zu generieren.</li>
+          <li>Mit dem Schieberegler ‘Rauschen’ können Sie die Daten künstlich verunreinigen, also Rauschen addieren, um so das Klassifikationsproblem zu erschweren.</li>
       </ul>
-      Sie können auf folgende Dinge klicken, um das maschinelle Lernwerkzeug, ein "Feed Forward Neural Network", anzupassen;
+      So ändern Sie das künstliche neuronale Netzwerk:
       <ul>
-          <li>Die Schaltflächen "+" und "-" am oberen Rand, um dem neuronalen Netz Schichten hinzuzufügen.</li>
-          <li>Die Schaltflächen "+" und "-" direkt darunter, um Neuronen zu jeder Schicht hinzuzufügen.</li>
-          <li>Das Dropdown-Menü "Aktivierung" zum Ändern der Aktivierungsfunktion, die jedes Neuron verwendet.</li>
+          <li>Mit den Knöpfen ‘+’ und ‘-’ am oberen Rand können Sie dem Netzwerk Schichten hinzufügen/entfernen.</li>
+          <li>In jeder Schicht können Sie mit den Knöpfen ‘+’ und ‘-’ Neuronen hinzufügen/entfernen.</li>
+          <li>Unter dem Reiter ‘Aktivierung’ können Sie die von den Neuronen verwendete Aktivierungsfunktion wählen.</li>
       </ul>
-      Zum Trainieren und Bewerten des neuronalen Netzes können Sie auf die folgenden Schaltflächen klicken;
+      So trainieren und evaluieren das Netzwerk:
       <ul>
-          <li>Die Schaltfläche "Ausführen/Pause", um den Trainingsprozess zu starten oder anzuhalten.</li>
-          <li>Das Kontrollkästchen "Testdaten anzeigen", um die Testdaten ein- oder auszublenden.</li>
+          <li>Starten bzw. stoppen Sie das Netzwerktraining über den Play/Pause Knopf.</li>
+          <li>Mit dem Knopf ‘Testdaten anzeigen’ können Sie sich den Testdatensatz ansehen.</li>
       </ul>
      <!-- 
       </p>
@@ -417,9 +418,10 @@ This file has been modified for use in the DESY open day 2024.
     -->
 
     <div class="l--body">
-      <h2>Credits</h2>
+      <h2>Danksagung</h2>
       <p>
-      Stark abgekupfert vom <a href="http://playground.tensorflow.org">Tensorflow Playground</a> von Google, der von Daniel Smilkov und Shan Carter erstellt wurde. Angepasst für den Tag der offenen Tür bei DESY von Henry Day-Hall.
+      Diese Einführung in künstliche neuronale Netzwerke basiert auf Tensorflow Playground (Google), <a href="http://playground.tensorflow.org">Tensorflow Playground</a>, von Daniel Smilkov und Shan Carter. 
+      Angepasst für den DESY Tag der offenen Tür von Henry Day-Hall.
       </p>
     </div>
   </article>
