@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ab6231b7-9503-463f-85c8-41e8da06a50e/deploy-status)](https://app.netlify.com/projects/inquisitive-fox-dc1b2e/deploys)
+
 # DESY open day playground
 
 This is an adaptation of [tensorflows' playground](https://github.com/tensorflow/playground).
